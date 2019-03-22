@@ -1,3 +1,5 @@
+import Initializers
+
 class FlattenLayer(BaseLayer):
     def __init__(self):
         # TODO: define the necessary class variables
@@ -28,7 +30,7 @@ class FlattenLayer(BaseLayer):
 
 class ConvolutionalLayer(BaseLayer):
     
-    def __init__(self, stride, kernel_shape, n_kernels, learning_rate):
+    def __init__(self, stride_shape, kernel_shape, n_kernels, learning_rate, weights_initializer=UniformRandom(), bias_initializer=Const(0.1)):
         """ 
             param: stride: tuple in the form of (np, nq) which denote the subsampling factor of the 
                    convolution operation in the spatial dimensions
@@ -36,8 +38,12 @@ class ConvolutionalLayer(BaseLayer):
                    the number of input channels and m x n is the size of the filter kernels
             param: n_kernels (int): number of kernels and therefore the number of output channels
             param: learning_rate (float): learning rate of this layer
+            param: weights_initializer: initializer object for the filter weights
+            param: bias_initializer: initializer object for the bias
         """
-        # TODO: define the neccesary class variables
+        # TODO: define the neccesary class variables, initialize the weights and bias
+        self.weights = ...
+        self.bias = ...
         pass 
     
     def forward(self, x):
